@@ -1,0 +1,30 @@
+Geek has a unique keyboard containing only the numpad keys. ie - 1,2,3,4,5,6,7,8,9,0. But the keyboard is damaged and can only process M keys. 
+Geek is supposed to use the keyboard to type as many natural numbers as possible starting from 1. 
+What will be the greatest natural number he will type?  
+
+int solve(int M)
+{
+    int c=0;
+    while(M>0)
+    {
+        M=M/10;
+        c++;
+    }
+    return c;
+}
+    int maxNatural(int M){
+        // code here
+        int ans=0;
+        int p=1;
+        while(M>0)
+        {
+            int countdigit = solve(p);
+        if (M >= countdigit) {
+            M = M - countdigit;
+            p++;
+        } else {
+            break;
+        }
+    }
+    return p - 1;
+    }
